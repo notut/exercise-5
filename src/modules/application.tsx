@@ -35,7 +35,7 @@ export function Application() {
 
     //Henter oversikt over fylkene
     const KommunerSource = new VectorSource({
-      url: "exercise-5/geojson/kommuner_grense.json",
+      url: "exercise-5/api/kommuner_grense.json",
       format: new GeoJSON(),
     });
 
