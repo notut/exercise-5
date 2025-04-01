@@ -13,6 +13,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/pg": "^8.11.11",
     "@types/react": "^19.0.12",
     "@types/react-dom": "^19.0.4",
     "husky": "^9.1.7",
@@ -23,6 +24,7 @@
   "dependencies": {
     "download-cli": "^1.1.1",
     "ol": "^10.4.0",
+    "pg": "^8.14.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   }
