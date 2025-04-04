@@ -18,7 +18,7 @@ app.get("/", async (c) => {
 app.get("/exercise-5/api/skoler", async (c) => {
   console.log("Kjører SQL-spørring...");
   const result = await postgresql.query(
-    "SELECT skolenavn, besoksadresse_besoksadresse_adressenavn as adresse, posisjon::json as coordinates FROM grunnskoler_3697913259634315b061b324a3f2cf59.grunnskole",
+    "SELECT skolenavn, besoksadresse_besoksadresse_adressenavn as adresse, st_transform(posisjon, 4326)::json as coordinates FROM grunnskoler_3697913259634315b061b324a3f2cf59.grunnskole",
   );
   console.log("Resultat hentet, lager GeoJSON");
 
