@@ -1,5 +1,6 @@
 import { Hono } from "hono";
 import { serve } from "@hono/node-server";
+import { serveStatic } from "@hono/node-server/serve-static";
 import pg from "pg";
 
 const postgresql = new pg.Pool({
@@ -11,9 +12,9 @@ const postgresql = new pg.Pool({
 });
 
 const app = new Hono();
-app.get("/", async (c) => {
+/*app.get("/", async (c) => {
   return c.text("Heisann");
-});
+});*/
 // Henter skoler som GeoJSON
 app.get("/api/skoler", async (c) => {
   console.log("Kjører SQL-spørring...");
@@ -44,6 +45,9 @@ where fylke.objid in (select fylke_fk
     type: "FeatureCollection",
     features,
   });
+});
+serveStatic({
+  path: "../dist",
 });
 
 const port = process.env.PORT ? parseInt(process.env.PORT) : 3000;
