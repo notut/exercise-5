@@ -15,7 +15,7 @@ app.get("/", async (c) => {
   return c.text("Heisann");
 });
 // Henter skoler som GeoJSON
-app.get("/exercise-5/api/skoler", async (c) => {
+app.get("/api/skoler", async (c) => {
   console.log("Kjører SQL-spørring...");
   const result = await postgresql.query(
     `
