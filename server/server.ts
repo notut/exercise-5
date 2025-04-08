@@ -46,6 +46,11 @@ where fylke.objid in (select fylke_fk
   });
 });
 
+const port = process.env.PORT ? parseInt(process.env.PORT) : 3000;
+serve({
+  fetch: app.fetch,
+  port,
+});
 // Start server
-serve(app);
-console.log("Server kjører på http://localhost:3000");
+//serve(app);
+//console.log("Server kjører på http://localhost:3000");
