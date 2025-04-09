@@ -46,9 +46,12 @@ where fylke.objid in (select fylke_fk
     features,
   });
 });
-serveStatic({
-  path: "../dist",
-});
+app.use(
+  "*",
+  serveStatic({
+    path: "../dist",
+  }),
+);
 
 const port = process.env.PORT ? parseInt(process.env.PORT) : 3000;
 serve({
