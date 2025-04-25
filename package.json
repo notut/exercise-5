@@ -25,13 +25,13 @@
     "@types/pg": "^8.11.11",
     "@types/react": "^19.0.12",
     "@types/react-dom": "^19.0.4",
-    "download-cli": "^1.1.1",
     "husky": "^9.1.7",
     "prettier": "^3.5.3",
     "typescript": "^5.8.2",
     "vite": "^6.2.5"
   },
   "dependencies": {
+    "download-cli": "^1.1.1",
     "ol": "^10.4.0",
     "pg": "^8.14.1",
     "react": "^19.0.0",
