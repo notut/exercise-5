@@ -3,18 +3,19 @@ import { serve } from "@hono/node-server";
 import { serveStatic } from "@hono/node-server/serve-static";
 import pg from "pg";
 
-const postgresql = new pg.Pool({
-  user: "postgres",
-  host: "localhost",
-  database: "postgres",
-  password: "postgres",
-  port: 5432,
-});
+const connectionString = process.env.DATABASE_URL;
+const postgresql = connectionString
+  ? new pg.Pool({ connectionString, ssl: { rejectUnauthorized: false } })
+  : new pg.Pool({
+      user: "postgres",
+      host: "localhost",
+      database: process.env.DATABASE_URL,
+      password: "postgres",
+      port: 5432,
+    });
 
 const app = new Hono();
-/*app.get("/", async (c) => {
-  return c.text("Heisann");
-});*/
+
 // Henter skoler som GeoJSON
 app.get("/api/skoler", async (c) => {
   console.log("Kjører SQL-spørring...");
@@ -49,7 +50,7 @@ where fylke.objid in (select fylke_fk
 app.use(
   "*",
   serveStatic({
-    path: "../dist",
+    root: "../dist",
   }),
 );
 
@@ -60,4 +61,4 @@ serve({
 });
 // Start server
 //serve(app);
-//console.log("Server kjører på http://localhost:3000");
+console.log("Server kjører på http://localhost:3000");
