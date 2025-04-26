@@ -14,8 +14,8 @@
     "db:schools:download": "download --extract --out tmp https://nedlasting.geonorge.no/geonorge/Befolkning/Grunnskoler/PostGIS/Befolkning_0000_Norge_25833_Grunnskoler_PostGIS.zip",
     "db:schools:heroku": "npm run db:schools:download && psql $DATABASE_URL < tmp/Befolkning_0000_Norge_25833_Grunnskoler_PostGIS.sql",
     "db:kommuner": "npm run db:kommuner:download && npm run db:kommuner:import",
-    "db:kommuner:import": "docker exec -i /postgis /usr/bin/psql --user postgres < tmp/Basisdata_0000_Norge_25833_Kommuner_POSTGIS.sql",
     "db:kommuner:download": "download --extract --out tmp https://nedlasting.geonorge.no/geonorge/Basisdata/Kommuner/POSTGIS/Basisdata_0000_Norge_25833_Kommuner_POSTGIS.zip",
+    "db:kommuner:import": "docker exec -i /postgis /usr/bin/psql --user postgres < tmp/Basisdata_0000_Norge_25833_Kommuner_POSTGIS.sql",
     "db:kommuner:heroku": "npm run db:kommuner:download && psql $DATABASE_URL < tmp/Basisdata_0000_Norge_25833_Kommuner_POSTGIS.sql",
     "db:fylker2023": "npm run db:fylker2023:download && npm run db:fylker2023:import",
     "db:fylker2023:download": "download --extract --out tmp https://nedlasting.geonorge.no/geonorge/Basisdata/Fylker2023/PostGIS/Basisdata_0000_Norge_25833_Fylker2023_PostGIS.zip",
@@ -35,7 +35,7 @@
     "husky": "^9.1.7",
     "prettier": "^3.5.3",
     "typescript": "^5.8.2",
-    "vite": "^6.2.5"
+    "vite": "^6.2.6"
   },
   "dependencies": {
     "download-cli": "^1.1.1",
